@@ -3,11 +3,13 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 
-const TestGrid = () => {
+const Search = () => {
     return (
         <>
         <Grid container spacing={2}>
-            <Grid item xs={6} md={2} >Hi</Grid>
+            <Grid item xs={6} md={2} >
+                <Typography variant="h2">I am the Search Page.</Typography>
+            </Grid>
             <Grid item xs={6} md={2} >Hello</Grid>
             <Grid item xs={6} md={2} >James</Grid>
             <Grid item xs={6} md={2} >Thomas</Grid>
@@ -17,7 +19,7 @@ const TestGrid = () => {
         </Grid>
 
         <Typography>I'm the Test Grid</Typography>
-        <Button component={Link} to="/search" variant="outlined">Search</Button>
+        <Button component={Link} to="/testgrid" variant="outlined">TestGrid</Button>
         </>
 
     )
@@ -25,4 +27,4 @@ const TestGrid = () => {
 
 
 
-export default TestGrid
+export default Search
