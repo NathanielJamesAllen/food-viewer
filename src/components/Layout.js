@@ -1,13 +1,15 @@
-import { Typography, Box, AppBar, Toolbar, IconButton, Button} from '@mui/material';
-import React from 'react';
+import { Typography, Box, AppBar, Toolbar, IconButton, Button, TextField, InputAdornment} from '@mui/material';
+import React, {useState} from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import TestGrid from '../pages/TestGrid'
 import Search from '../pages/Search'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import SearchIcon from '@mui/icons-material/Search';
 
 
 
 const Layout = () => {
+    const [searchText, setSearchText] = useState("I'm here. Good")
     return (
         <>
         <BrowserRouter>
@@ -24,7 +26,35 @@ const Layout = () => {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    News
+                    <TextField
+                    onChange={
+                        (e) => {
+                            setSearchText(e.target.value)
+
+                        }
+                    } 
+                    label="Search" 
+                    variant='outlined'
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon />
+
+
+                            </InputAdornment>
+                        )
+
+                    
+
+                    }}
+
+
+                    />
+                    
+                    
+                    
+
+                    
                 </Typography>
                 <Button color="inherit">Login</Button>
                 </Toolbar>
@@ -33,7 +63,7 @@ const Layout = () => {
 
 
 
-        <Typography>I'm the Layout</Typography>
+        <Typography variant="h2">{searchText}</Typography>
         <Routes>
             <Route exact path="/" element={<TestGrid/>}/>
             <Route exact path="/testgrid" element={<TestGrid/>}/>
