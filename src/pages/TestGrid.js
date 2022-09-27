@@ -18,7 +18,7 @@ const TestGrid = () => {
                             <Grid item xs={6} md={2} >
                                 <Card>
                                     <CardContent>
-                                        Hi
+                                        {value}
                                     </CardContent>
                                 </Card>
                             </Grid>

@@ -1,25 +1,34 @@
-import { Typography, Grid, Button } from '@mui/material';
+import { Typography, Grid, Button, Card, CardContent } from '@mui/material';
 import React from 'react';
 import {Link} from 'react-router-dom'
 
 
-const Search = () => {
+const Search = ({searchResults}) => {
+    const people = ["Search", "James", "Thomas", "Isaiah", "Joshua", "Nanette"]
     return (
         <>
-        <Grid container spacing={2}>
-            <Grid item xs={6} md={2} >
-                <Typography variant="h2">I am the Search Page.</Typography>
+         <Grid container spacing={2} sx={{pt: 2}}>
+                    {
+                        searchResults.map(
+                            (value) => {
+                                return (
+                                    <Grid item xs={6} md={2} >
+                                        <Card>
+                                            <CardContent>
+                                                {value.name}
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                )
+
+                            }
+
+                        )
+                    }
+
+
             </Grid>
-            <Grid item xs={6} md={2} >Hello</Grid>
-            <Grid item xs={6} md={2} >James</Grid>
-            <Grid item xs={6} md={2} >Thomas</Grid>
-            <Grid item xs={6} md={2} >Isaiah</Grid>
-            <Grid item xs={6} md={2} >Joshua</Grid>
 
-        </Grid>
-
-        <Typography>I'm the Test Grid</Typography>
-        <Button component={Link} to="/testgrid" variant="outlined">TestGrid</Button>
         </>
 
     )
