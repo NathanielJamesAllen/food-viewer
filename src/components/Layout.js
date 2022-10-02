@@ -1,5 +1,5 @@
 import { Typography, Box, AppBar, Toolbar, IconButton, Button, TextField, InputAdornment, Paper} from '@mui/material';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import TestGrid from '../pages/TestGrid'
 import Search from '../pages/Search'
@@ -14,8 +14,8 @@ const Layout = () => {
     const[results, setResults] = useState([])
     let mySearchTest = "I'm here."
 
-    const searchApi = async () => {
-        const response = await yelp('23322', 'mexican food')
+    const searchApi = async (term) => {
+        const response = await yelp('23322', term)
         console.log(response.data.businesses)
         setResults(response.data.businesses)
         //response.data.businesses
@@ -24,9 +24,17 @@ const Layout = () => {
 
     const doSearch = (e) =>{
         setSearchText(e.target.value)
-        searchApi()
+        searchApi(e.target.value)
+
+    
 
     }
+
+    useEffect(() => {
+        searchApi('Mexican Food')
+
+
+    } , [] )
     return (
         <>
         <Paper sx={{backgroundColor : "#eeeeee", pb: 2}}>
@@ -80,7 +88,7 @@ const Layout = () => {
 
        <Typography variant="h6">Your search results for: {searchText}</Typography>
         <Routes>
-            <Route exact path="/" element={<TestGrid/>}/>
+            <Route exact path="/" element={<Search searchResults={results}/>}/>
             <Route exact path="/testgrid" element={<TestGrid/>}/>
             <Route exact path="/search" element={<Search searchResults={results}/>}/>
         </Routes>
