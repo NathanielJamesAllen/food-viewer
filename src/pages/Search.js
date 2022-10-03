@@ -1,11 +1,11 @@
-import { Typography, Grid, Button, Card, CardContent } from '@mui/material';
+//import { Typography, Grid, Button, Card, CardContent } from '@mui/material';
 import React from 'react';
-import {Link} from 'react-router-dom'
+//import {Link} from 'react-router-dom'
 import SearchResults from '../components/searchResults';
 
 
 const Search = ({searchResults}) => {
-    const people = ["Search", "James", "Thomas", "Isaiah", "Joshua", "Nanette"]
+    //const people = ["Search", "James", "Thomas", "Isaiah", "Joshua", "Nanette"]
     const cheapfood = searchResults.filter((value) =>  value.price === "$")
     const medfood = searchResults.filter((value) =>  value.price === "$$")
     const expfood = searchResults.filter((value) =>  value.price === "$$$")

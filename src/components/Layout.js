@@ -12,7 +12,7 @@ import yelp from '../api/yelp'
 const Layout = () => {
     const [searchText, setSearchText] = useState("I'm here. Good")
     const[results, setResults] = useState([])
-    let mySearchTest = "I'm here."
+    //let mySearchTest = "I'm here."
 
     const searchApi = async (term) => {
         const response = await yelp('23322', term)

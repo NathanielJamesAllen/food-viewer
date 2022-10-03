@@ -42,7 +42,8 @@ const searchResults = ({food, title}) => {
                                                     Phone   
                                                 </Typography>
                                                 <Typography>
-                                                    {value.phone}
+                                                    {value.phone} <br/>
+                                                   <a href={value.url}>Website</a>
                                                 </Typography>
                                                 </CardContent>
                                             </CardActionArea>
