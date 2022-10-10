@@ -12,12 +12,17 @@ import yelp from '../api/yelp'
 const Layout = () => {
     const [searchText, setSearchText] = useState("I'm here. Good")
     const[results, setResults] = useState([])
+    const[restId, setRestId] = useState(['nothing to see here'])
     //let mySearchTest = "I'm here."
 
     const searchApi = async (term) => {
         const response = await yelp('23322', term)
         console.log(response.data.businesses)
         setResults(response.data.businesses)
+
+        const response2 = await fetch("/api/yelp")
+        const data = await response2.json()
+        console.log(data)
         //response.data.businesses
 
     }
@@ -88,9 +93,9 @@ const Layout = () => {
 
        <Typography variant="h6">Your search results for: {searchText}</Typography>
         <Routes>
-            <Route exact path="/" element={<Search />}/>
+            <Route exact path="/" element={<Search searchResults={results}/>}/>
             <Route exact path="search" element={<Search searchResults={results} />}/>
-            <Route exact path="detail" element={<Detail searchResults={results} />}/>
+            <Route exact path="detail" element={<Detail restid={restId} />}/>
         </Routes>
         
         </BrowserRouter>
