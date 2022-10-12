@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material'
 import React from 'react'
 
-const Detail = ({restid}) => {
+const Detail = ({searchResults, restaurantId}) => {
 
     return (
         <>
-        <Typography>I'm the Details page - [restid]</Typography>
+        <Typography>I'm the Details page  {restaurantId}</Typography>
         
         </>
     )

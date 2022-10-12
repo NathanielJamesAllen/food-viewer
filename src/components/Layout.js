@@ -12,7 +12,7 @@ import yelp from '../api/yelp'
 const Layout = () => {
     const [searchText, setSearchText] = useState("I'm here. Good")
     const[results, setResults] = useState([])
-    const[restId, setRestId] = useState(['nothing to see here'])
+    const[restaurantId, setRestaurantId] = useState(['nothing to see here'])
     //let mySearchTest = "I'm here."
 
     const searchApi = async (term) => {
@@ -93,9 +93,9 @@ const Layout = () => {
 
        <Typography variant="h6">Your search results for: {searchText}</Typography>
         <Routes>
-            <Route exact path="/" element={<Search searchResults={results}/>}/>
-            <Route exact path="search" element={<Search searchResults={results} />}/>
-            <Route exact path="detail" element={<Detail restid={restId} />}/>
+            <Route exact path="/" element={<Search searchResults={results} setRestaurantId={setRestaurantId}/>}/>
+            <Route exact path="search" element={<Search searchResults={results} setRestaurantId={setRestaurantId}/>}/>
+            <Route exact path="detail" element={<Detail restaurantId={restaurantId}/>}/>
         </Routes>
         
         </BrowserRouter>
