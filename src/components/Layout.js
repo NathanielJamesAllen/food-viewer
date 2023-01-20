@@ -13,29 +13,73 @@ const Layout = () => {
     const [searchText, setSearchText] = useState("I'm here. Good")
     const[results, setResults] = useState([])
     const[restaurantId, setRestaurantId] = useState(['nothing to see here'])
+    const[coords, setCoords] = useState([37.7384247, -79.3465447])
+     
     //let mySearchTest = "I'm here."
 
+    function setCurrentPosition( position ) { 
+        console.log(position.coords.latitude, position.coords.longitude)
+        setCoords([position.coords.latitude, position.coords.longitude])
+       
+    }
+    function positionError( error ) { 
+    
+        switch ( error.code ) { 
+            case error.PERMISSION_DENIED:               
+                console.error( "User denied the request for Geolocation." ); 
+                break;    
+            case error.POSITION_UNAVAILABLE:   
+                console.error( "Location information is unavailable." ); 
+                break;    
+            case error.TIMEOUT: 
+                console.error( "The request to get user location timed out." ); 
+                break;  
+            case error.UNKNOWN_ERROR:  
+                console.error( "An unknown error occurred." ); 
+                break; 
+        }
+    }
+
     const searchApi = async (term) => {
-        const response = await yelp('23322', term)
-        console.log(response.data.businesses)
-        setResults(response.data.businesses)
 
-        const response2 = await fetch("/api/yelp")
+        try{
+        //const response = await yelp('23322', term)
+        //console.log(response.data.businesses)
+        //setResults(response.data.businesses)
+        
+          
+
+        const response2 = await fetch(`/api/yelp?lat=${coords[0]}&lon=${coords[1]}&term=${term}`)
         const data = await response2.json()
-        console.log(data)
-        //response.data.businesses
+        console.log("hi", data)
+        setResults(data.businesses)
+        } catch{
+            console.log('I am in the caught error')
+        }
 
+        const response3 = await fetch(`api/yelpBusinessDetail`)
+        const data3 = await response3.json()
+        console.log("hi", data3)
+
+        //response.data.businesses
+        
     }
 
     const doSearch = (e) =>{
         setSearchText(e.target.value)
         searchApi(e.target.value)
 
-    
-
     }
 
     useEffect(() => {
+        if ( navigator.geolocation ) { 
+            
+            navigator.geolocation.getCurrentPosition( setCurrentPosition, positionError, { 
+                enableHighAccuracy: false, 
+                timeout: 15000, 
+                maximumAge: 0 
+            } );
+        } 
         searchApi('Mexican Food')
 
 
@@ -58,8 +102,7 @@ const Layout = () => {
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     <TextField
-                    onKeyPress={
-                        (e) => {
+                    onKeyPress={  (e) => {
                             if (e.key === "Enter"){
                                 doSearch(e)
                             }
