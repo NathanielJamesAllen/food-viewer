@@ -5,7 +5,7 @@ import Search from '../pages/Search'
 import Detail from '../pages/Details';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import SearchIcon from '@mui/icons-material/Search';
-import yelp from '../api/yelp'
+//import yelp from '../api/yelp'
 
 
 
@@ -35,6 +35,9 @@ const Layout = () => {
                 console.error( "The request to get user location timed out." ); 
                 break;  
             case error.UNKNOWN_ERROR:  
+                console.error( "An unknown error occurred." ); 
+                break; 
+            default:
                 console.error( "An unknown error occurred." ); 
                 break; 
         }
@@ -83,7 +86,7 @@ const Layout = () => {
         searchApi('Mexican Food')
 
 
-    } , [] )
+    } , [] ) // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <>
         <Paper sx={{backgroundColor : "#eeeeee", pb: 2}}>
