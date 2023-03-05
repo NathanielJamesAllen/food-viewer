@@ -10,7 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 const Layout = () => {
-    const [searchText, setSearchText] = useState("Enter your favorite type of food")
+    const [searchText, setSearchText] = useState("Enter favorite food")
     const[results, setResults] = useState([])
     const[restaurantId, setRestaurantId] = useState(['nothing to see here'])
     const[coords, setCoords] = useState([37.7384247, -79.3465447])
