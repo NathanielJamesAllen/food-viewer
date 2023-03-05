@@ -10,7 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 const Layout = () => {
-    const [searchText, setSearchText] = useState("I'm here. Good")
+    const [searchText, setSearchText] = useState("Enter your favorite type of food")
     const[results, setResults] = useState([])
     const[restaurantId, setRestaurantId] = useState(['nothing to see here'])
     const[coords, setCoords] = useState([37.7384247, -79.3465447])
@@ -137,7 +137,7 @@ const Layout = () => {
             </AppBar>
         </Box>
 
-       <Typography variant="h6">Your search results for: {searchText}</Typography>
+       <Typography variant="h6">Your search results for: {searchText} {coords} </Typography>
         <Routes>
             <Route exact path="/" element={<Search searchResults={results} setRestaurantId={setRestaurantId}/>}/>
             <Route exact path="search" element={<Search searchResults={results} setRestaurantId={setRestaurantId}/>}/>
