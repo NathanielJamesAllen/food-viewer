@@ -136,7 +136,9 @@ const Layout = () => {
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                   <TextField onKeyPress={(zip) => {
-                    if (zip.key === "Enter") zipSearch(zip);
+                    if (zip.key === "Enter") {
+                        zipSearch(zip);
+                    }
                   }}
                     label="zipcode"
                     variant="outlined"
