@@ -155,7 +155,7 @@ const Layout = () => {
        <Typography variant="h6">Your search results for: {searchText} in {zipText} </Typography>
         <Routes>
             <Route exact path="/" element={<Search searchResults={results} setRestaurantId={setRestaurantId}/>}/>
-            <Route exact path="search" element={<Search searchResults={results} setRestaurantId={setRestaurantId}/>}/>
+            <Route exact path="/search" element={<Search searchResults={results} setRestaurantId={setRestaurantId}/>}/>
             <Route exact path="detail" element={<Detail restaurantId={restaurantId}/>}/>
         </Routes>
         
