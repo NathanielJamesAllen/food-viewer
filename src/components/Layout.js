@@ -47,7 +47,7 @@ const Layout = () => {
     const searchApi = async (zip, term) => {
 
         try{
-          const response = await yelp('23322', term)
+          const response = await yelp(zip, term)
         //console.log(response.data.businesses)
           setResults(response.data.businesses)
         //const response2 = await fetch(`/api/yelp?lat=${coords[0]}&lon=${coords[1]}&term=${term}`)
@@ -123,12 +123,8 @@ const Layout = () => {
                         startAdornment: (
                             <InputAdornment position="start">
                                 <SearchIcon />
-
-
                             </InputAdornment>
                         )
-
-                    
 
                     }}
                     
