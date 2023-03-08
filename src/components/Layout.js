@@ -50,7 +50,8 @@ const Layout = () => {
           const response = await yelp('23322', term)
         //console.log(response.data.businesses)
           setResults(response.data.businesses)
-          const response2 = await fetch(`/api/yelp?lat=${coords[0]}&lon=${coords[1]}&term=${term}`)
+        //const response2 = await fetch(`/api/yelp?lat=${coords[0]}&lon=${coords[1]}&term=${term}`)
+          const response2 = await fetch("/api/yelp");
           const data = await response2.json()
           console.log("hi", data)
           setResults(data.businesses)
@@ -152,7 +153,7 @@ const Layout = () => {
                 </Toolbar>
             </AppBar>
         </Box>
-        
+
        <Typography variant="h6">Your search results for: {searchText} in {zipText} </Typography>
         <Routes>
             <Route exact path="/" element={<Search searchResults={results} setRestaurantId={setRestaurantId}/>}/>
