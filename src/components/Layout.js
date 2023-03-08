@@ -11,9 +11,10 @@ import yelp from '../api/yelp'
 
 const Layout = () => {
     const [searchText, setSearchText] = useState("Enter favorite food")
+    const [zipText, setZipText] = useState("23322")
     const[results, setResults] = useState([])
     const[restaurantId, setRestaurantId] = useState(['nothing to see here'])
-    const [zipText, setZipText] = useState("23322")
+    
     //const[coords, setCoords] = useState([37.7384247, -79.3465447])
      
     //let mySearchTest = "I'm here."
