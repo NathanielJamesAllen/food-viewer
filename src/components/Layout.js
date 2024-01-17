@@ -50,7 +50,7 @@ const Layout = () => {
             //const response2 = await fetch("/api/yelp");
             const data = await response2.json()
             console.log("hi", data)
-            setResults(data.businesses)
+            //setResults(data.businesses)
         } 
         catch {
             console.log('I am in the caught error')
