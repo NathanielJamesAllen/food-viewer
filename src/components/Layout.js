@@ -56,9 +56,9 @@ const Layout = () => {
             console.log('I am in the caught error')
         }
 
-        const response3 = await fetch(`api/yelpBusinessDetail`)
-        const data3 = await response3.json()
-        console.log("hello", data3)
+        //const response3 = await fetch(`api/yelpBusinessDetail`)
+        //const data3 = await response3.json()
+        //console.log("hello", data3)
         //setResults(data3)
         //response.data.businesses
     }
