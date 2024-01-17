@@ -46,10 +46,10 @@ const Layout = () => {
             const response = await yelp(zip, term)
             console.log(response.data.businesses)
             setResults(response.data.businesses)
-            const response2 = await fetch(`/api/yelp?location=${zip}&term=${term}`)
+            //const response2 = await fetch(`/api/yelp?location=${zip}&term=${term}`)
             //const response2 = await fetch("/api/yelp");
-            const data = await response2.json()
-            console.log("hi", data)
+            //const data = await response2.json()
+            //console.log("hi", data)
             //setResults(data.businesses)
         } 
         catch {
